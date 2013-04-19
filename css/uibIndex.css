@@ -20,25 +20,49 @@ body{
   width: 780px;
   left: 50%;
   margin-left: -401px;
-  border: 1px solid #333333;
-  border-radius: 4px;
   background-color: #DDDDDD;
   padding: 5px 10px;
   position: fixed;
   height: 500px;
+  margin-top: -256px;
+  top: 50%;
 }
 
 .floating-box-content{
   overflow-y: scroll;
   height: 450px;
+  border-bottom: 1px dashed #000000;
+  margin-bottom: 8px;
+}
+
+.box-border{
+  border: 1px solid #333333;
+  border-radius: 4px;
 }
 
 .floating-box-toolbar{
-  background-color: #999999;
+  background-color: #BBBBBB;
   height: 30px;
-  width: 100%;
-  padding-top: 10px;
-  margin-top: 5px;
+  width: 778px;
+  padding-top: 6px;
+  bottom: 10px;
+  position: absolute;
+  text-align: center;
+}
+
+.toolbar-button{
+  cursor: pointer;
+  background-color: #999999;
+  font-size: 18px;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0 10px;
+  padding: 0 5px;
+}
+
+.disabled{
+  color: #AAAAAA;
+  cursor: default;
 }
 
 .avatar{
@@ -52,7 +76,7 @@ body{
 
 .tweet-description{
   display: inline-block;
-  width: 690px;
+  width: 680px;
   padding: 2px 0 0 10px;
   font-size: 14px;
   line-height: 20px;
@@ -62,21 +86,13 @@ body{
   display: inline-block;
   margin: 5px 0;
   height: 80px;
-  width: 770px;
+  width: 760px;
 }
 
 .tweet-top-text{
   height: 30px;
 }
 
-.toolbar-button{
-  cursor: pointer;
-  background-color: #555555;
-  font-size: 18px;
-  font-weight: bold;
-  display: inline-block;
-  margin: 0 10px;
-}
 
 .left{
   float: left;

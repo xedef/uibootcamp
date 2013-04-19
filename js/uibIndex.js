@@ -1,5 +1,7 @@
 
 var enteredName;
+var twitterDataValues;
+var previousTweetsContainerHeight = 0;
 
 $(document).ready(onDocumentFinishedLoading);
 
@@ -12,12 +14,16 @@ function onDocumentFinishedLoading (){
   $('#greeting-button').bind('click', onButtonPressed);
   $('#twitter-button').bind('click', getTweets);
   $('#close-floating-box').bind('click', hideTweets);
+  $('#get-more-tweets').bind('click', getMoreTweets);
 
   alert('Page has finished loading.');
 
   $('#alias').focus();
-}
 
+  // initialize Twitter API data parameters
+  twitterDataValues = {'q': 'html5'};
+
+}
 
 /**
 * Executed when the button in the templated is pressed.
@@ -66,12 +72,27 @@ function onServiceCallFail()
 * Calls Twitter API
 */
 function getTweets(){
+
   $.ajax({
     url: 'http://search.twitter.com/search.json',
-    data:{'q': 'html5'},
+    data: twitterDataValues,
     dataType: 'jsonp',
     jsonpCallback: 'onGetTweetsSuccess'
   });
+}
+
+/**
+* Same as "getTweets" but checking/setting the "More Tweets" button status
+*/
+function getMoreTweets(){
+
+  // where do you think you're going?
+  if ($('#get-more-tweets').hasClass('disabled')){
+    return;
+  }
+
+  setMoreTweetsButtonEnabledStatus(false);
+  getTweets();
 }
 
 /**
@@ -79,10 +100,58 @@ function getTweets(){
 */
 function onGetTweetsSuccess(data){
   var tweets = data.results;
-  showTweets(tweets);
+
+  parseNextPageDataValues(data.next_page);
+  addTweetsToContainer(tweets);
+
+  // save the current lastItem position for the next page scrolling
+  previousTweetsContainerHeight = $('.floating-box-content')[0].scrollHeight;
+
+  setMoreTweetsButtonEnabledStatus(true);
 }
 
-function showTweets(tweets){
+/**
+* Sets the status of the "More Twweets" button to enabled or disabled
+*/
+function setMoreTweetsButtonEnabledStatus(enabledValue){
+  if (enabledValue) {
+    $('#get-more-tweets').removeClass('disabled');
+  } else {
+    $('#get-more-tweets').addClass('disabled');
+  }
+
+}
+
+/**
+* Parses the "next_page" value from Twitter response to identify the parameters for the next call
+*/
+function parseNextPageDataValues(queryString){
+  // ?page=2&max_id=324969446781370368&q=html5
+  var parameters;
+  var newTwitterDataValues = {};
+  var kvPair;
+
+  // drop initial question mark if present
+  if (queryString[0] == '?') {
+    queryString = queryString.substring(1);
+  }
+
+  // split queries
+  parameters = queryString.split('&');
+
+  // split parameters/values in pairs
+  for (var index in parameters) {
+    kvPair = parameters[index].split('=');
+    newTwitterDataValues[kvPair[0]] = kvPair[1];
+  }
+
+  twitterDataValues = newTwitterDataValues;
+}
+
+/**
+* Adds the tweets that came in the response to the container.
+*/
+function addTweetsToContainer(tweets){
 
   for (var index in tweets){
     $('#tweets-container').append(createTweetItem(tweets[index], index));
@@ -90,8 +159,15 @@ function showTweets(tweets){
 
   // animate overlay
   $('.floating-box').show('slow');
+
+  if (previousTweetsContainerHeight) {
+    $('.floating-box-content').animate({scrollTop: previousTweetsContainerHeight}, 500);
+  }
 }
 
+/**
+* Creates a tweet template item that is going to be shown in the container
+*/
 function createTweetItem(tweet, index){
   var oddityClass = (+index % 2 === 0) ? 'even' : 'odd';
 
