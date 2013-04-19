@@ -15,7 +15,6 @@ body{
 }
 
 .floating-box{
-  display: block;
   position: fixed;
   width: 780px;
   left: 50%;
@@ -110,4 +109,14 @@ body{
 
 .odd{
   background-color: #EEEEEE;
+}
+
+.overlay-background{
+  background-color: #AAAAAA;
+  opacity: 0.6;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }

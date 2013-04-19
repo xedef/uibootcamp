@@ -18,11 +18,11 @@ function onDocumentFinishedLoading (){
 
   alert('Page has finished loading.');
 
+  // set focus on the textbox
   $('#alias').focus();
 
-  // initialize Twitter API data parameters
+  // initialize Twitter API call data parameters
   twitterDataValues = {'q': 'html5'};
-
 }
 
 /**
@@ -158,7 +158,9 @@ function addTweetsToContainer(tweets){
   }
 
   // animate overlay
-  $('.floating-box').show('slow');
+  if ($('.floating-box').hasClass('hidden')){
+    showTweets();
+  }
 
   if (previousTweetsContainerHeight) {
     $('.floating-box-content').animate({scrollTop: previousTweetsContainerHeight}, 500);
@@ -188,6 +190,16 @@ function createTweetItem(tweet, index){
 /**
 * Hides the overlay that contains the tweets
 */
+function showTweets(){
+  $('.overlay-background').fadeIn('slow');
+  $('.floating-box').show('slow');
+}
+
+
+/**
+* Hides the overlay that contains the tweets
+*/
 function hideTweets(){
+  $('.overlay-background').fadeOut('slow');
   $('.floating-box').hide('slow');
 }
