@@ -1,0 +1,184 @@
+body{
+  font-family: Verdana, Arial, sans-serif;
+  margin: 0;
+}
+
+.page-header{
+  width: 100%;
+  height: 110px;
+  background-color: #DDDDDD;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.page-title{
+  font-weight: bold;
+  font-size: 32px;
+  display: inline;
+  margin-left: 30px;
+  position: absolute;
+  line-height: 105px;
+}
+
+.header-logo{
+  width: 100px;
+  height: 100px;
+}
+
+.content{
+  width: 850px;
+  margin-left: -425px;
+  left: 50%;
+  position: absolute;
+  text-align: left;
+}
+
+.section{
+  border-top: 1px dotted #000000;
+  padding: 30px 0;
+}
+
+.primary-container{
+  border-left: 1px solid #000000;
+  border-right: 1px solid #000000;
+  min-height: 400px;
+  padding: 40px 20px;
+}
+
+.text-container{
+  border: 1px solid;
+  display: inline-block;
+  width: 300px;
+  height: 22px;
+  position: absolute;
+  border-radius: 4px;
+  margin-left: 40px;
+  padding-top: 3px;
+  padding-left: 3px;
+}
+.error{
+  color: #FF0000;
+}
+
+.highlight{
+  background-color: #FFFF00;
+}
+
+.hidden{
+  display: none;
+}
+
+.floating-box{
+  position: fixed;
+  width: 780px;
+  left: 50%;
+  margin-left: -401px;
+  background-color: #DDDDDD;
+  padding: 5px 10px;
+  position: fixed;
+  height: 500px;
+  margin-top: -256px;
+  top: 50%;
+}
+
+.floating-box-content{
+  overflow-y: scroll;
+  height: 450px;
+  border-bottom: 1px dashed #000000;
+  margin-bottom: 8px;
+}
+
+.box-border{
+  border: 1px solid #333333;
+  border-radius: 4px;
+}
+
+.floating-box-toolbar{
+  background-color: #BBBBBB;
+  height: 30px;
+  width: 778px;
+  padding-top: 6px;
+  bottom: 10px;
+  position: absolute;
+  text-align: center;
+}
+
+.toolbar-button{
+  cursor: pointer;
+  background-color: #999999;
+  font-size: 18px;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0 10px;
+  padding: 0 5px;
+}
+
+.disabled{
+  color: #AAAAAA;
+  cursor: default;
+}
+
+.avatar{
+  width: 48px;
+  height: 48px;
+  float: left;
+  display: inline;
+  margin-top: 16px;
+  margin-left: 16px;
+}
+
+.avatar img{
+  max-width: 100%;
+}
+
+.tweet-description{
+  display: inline-block;
+  width: 680px;
+  padding: 2px 0 0 10px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.tweet{
+  display: inline-block;
+  margin: 5px 0;
+  height: 80px;
+  width: 760px;
+}
+
+.tweet-top-text{
+  height: 30px;
+}
+
+
+.left{
+  float: left;
+  display: inline;
+}
+
+.right{
+  float: right;
+  display: inline;
+}
+
+.center{
+  text-align: center;
+}
+
+.even{
+  background-color: #CCCCCC;
+}
+
+.odd{
+  background-color: #EEEEEE;
+}
+
+.overlay-background{
+  background-color: #6F5E29;
+  opacity: 0.6;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
