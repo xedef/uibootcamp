@@ -1,7 +1,97 @@
+body{
+  font-family: Arial;
+}
+
 .error{
   color: #FF0000;
 }
 
 .highlight{
   background-color: #FFFF00;
+}
+
+.hidden{
+  display: none;
+}
+
+.floating-box{
+  display: block;
+  position: fixed;
+  width: 780px;
+  left: 50%;
+  margin-left: -401px;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  background-color: #DDDDDD;
+  padding: 5px 10px;
+  position: fixed;
+  height: 500px;
+}
+
+.floating-box-content{
+  overflow-y: scroll;
+  height: 450px;
+}
+
+.floating-box-toolbar{
+  background-color: #999999;
+  height: 30px;
+  width: 100%;
+  padding-top: 10px;
+  margin-top: 5px;
+}
+
+.avatar{
+  width: 48px;
+  height: 48px;
+  float: left;
+  display: inline;
+  margin-top: 16px;
+  margin-left: 16px;
+}
+
+.tweet-description{
+  display: inline-block;
+  width: 690px;
+  padding: 2px 0 0 10px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.tweet{
+  display: inline-block;
+  margin: 5px 0;
+  height: 80px;
+  width: 770px;
+}
+
+.tweet-top-text{
+  height: 30px;
+}
+
+.toolbar-button{
+  cursor: pointer;
+  background-color: #555555;
+  font-size: 18px;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.left{
+  float: left;
+  display: inline;
+}
+
+.right{
+  float: right;
+  display: inline;
+}
+
+.even{
+  background-color: #CCCCCC;
+}
+
+.odd{
+  background-color: #EEEEEE;
 }
