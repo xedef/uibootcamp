@@ -1,14 +1,18 @@
-var  errorObj;
+
 var enteredName;
 var twitterDataValues;
+var twitterSearchTopic = 'html5'; // used as a constant
 var previousTweetsContainerHeight = 0;
 
-$(document).ready(onDocumentFinishedLoading);
+// call the initializing function once the page loads
+window.onload = onDocumentFinishedLoading;
 
 /**
 * Executed when the page finishes loading.
 */
 function onDocumentFinishedLoading (){
+
+  $('#twitter-button').val('Let\'s see what people are saying about ' + twitterSearchTopic);
 
   // bind buttons' action
   $('#greeting-button').bind('click', onButtonPressed);
@@ -22,7 +26,7 @@ function onDocumentFinishedLoading (){
   $('#alias').focus();
 
   // initialize Twitter API call data parameters
-  twitterDataValues = {'q': 'html5'};
+  twitterDataValues = {'q': twitterSearchTopic};
 }
 
 /**
@@ -48,8 +52,6 @@ function onButtonPressed(){
       dataType : 'json'
     }).fail(onServiceCallFail);
   }
-
-
 }
 
 /**

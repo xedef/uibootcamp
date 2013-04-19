@@ -8,10 +8,29 @@
     <script type="text/javascript" src="js/uibIndex.js"></script>
   </head>
 <body>
-  <input type="button" id="greeting-button" value="Greet me..."/>
-  <input type="text" id="alias"/>
-  <input type="button" id="twitter-button" value="Get Tweets"/>
-  <div id="response-container"></div>
+
+  <div class="page-header">
+    <div class="content">
+      <img class="header-logo" src="images/site_logo.png" alt="HTML5 bootcamp">
+      <div class="page-title">Globant HTML5 Bootcamp</div>
+    </div>
+
+  </div>
+  <!-- body content -->
+  <div class="content primary-container">
+
+    <div class="section">
+      <input type="text" id="alias" placeholder="Enter your name here"/>
+      <input type="button" id="greeting-button" value="Let me say hello to you..."/>
+      <div id="response-container" class="text-container"></div>
+    </div>
+
+    <div class="section center">
+      <input type="button" id="twitter-button" value=""/>
+    </div>
+  </div>
+
+  <!-- floating elements (hidden at first) -->
   <div class="overlay-background hidden"></div>
   <div class="floating-box box-border hidden">
     <div class="floating-box-content" id="tweets-container"></div>
