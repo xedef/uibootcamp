@@ -1,4 +1,4 @@
-
+var  errorObj;
 var enteredName;
 var twitterDataValues;
 var previousTweetsContainerHeight = 0;
@@ -30,11 +30,26 @@ function onDocumentFinishedLoading (){
 */
 function onButtonPressed(){
   enteredName = $('#alias').val();
-  $.ajax({
-    url: 'http://bootcamp.aws.af.cm/welcome/' + enteredName,
-    success: onServiceCallResponse,
-    dataType: 'json'
-  }).fail(onServiceCallFail);
+  var url = 'http://bootcamp.aws.af.cm/welcome/' + enteredName;
+
+  // Thanks, IE!
+  if (window.XDomainRequest) {
+    // Use Microsoft XDR
+    var xdr = new XDomainRequest();
+    xdr.open('get', url);
+    xdr.onload = function() {
+        onServiceCallResponse(JSON.parse(xdr.responseText));
+    };
+    xdr.send();
+  } else { // decent browsers...
+    $.ajax({
+      url: url,
+      success: onServiceCallResponse,
+      dataType : 'json'
+    }).fail(onServiceCallFail);
+  }
+
+
 }
 
 /**
