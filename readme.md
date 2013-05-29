@@ -1,20 +1,20 @@
 Globant HTML5 Bootcamp
 ======================
 
-#Topic 1: Javascript Intro and jQuery
+#Topic 2: jQuery Mobile
 
 ##Exercises
-1. Add jQuery to this code: http://pastebin.com/pSysQTV6 (download it or create a new index.html file and put that code inside)
-1. Add a button to your index.html.
-1. Show an alert when page has finished loading.
-1. Add a textbox with the id “alias”, and put the cursor inside it right after alert closes.
-1. Attach an event to the created button which calls a function that gets a response from http://bootcamp.aws.af.cm/welcome/tunombre
-1. Write the response to a div element.
-1. Show div content in red when a server error occurs.
-1. Take some free air and then create a function to highlight your name in the server response content. Call it right after setting the response inside the div.
-1. AJAX: get the response from http://search.twitter.com/search.json with parameter data "q=html5". First show response in firebug’s console log to analyze data, then display tweets inside a floated div in the middle of the screen.
-For each tweet show: from_user, text, created_at, profile_image_url.
-1. Add a transparent background covering the whole screen behind the tweets div so the background gets dimmed.
-
+1. Copy your code from the first day to current topic folder.
+1. Add jQuery Mobile to your app.
+1. Set viewport.
+1. Add proper data roles.
+1. Show a loading animation when previously created button is clicked.
+1. Hide animation when ESC key is pressed.
+1. Add three pages and a menu to navigate between them.
+1. Play with different transitions between pages.
+1. Add some content to your pages and buttons that opens dialogs.
+1. Create a new file pages/sample1.html from the code in http://pastebin.com/VGZYCbS2. Load its content in a new page (it’s just one link)
+1. Translate your movie.getTop listing into a jQuery Mobile list with thumbs.
+1. Show a dialog with more movie details and bigger box art when a movie is clicked.
 
 ### (C)2013 - Federico Emanuel Freire
