@@ -5,9 +5,6 @@ var uibIndex = (function($){
       TWITTER_SEARCH_TOPIC = 'html5',
       previousTweetsContainerHeight = 0;
 
-  // call the initializing function once the page loads
-  // window.onload = onDocumentFinishedLoading;
-
   /**
   * Executed when the page finishes loading.
   */
@@ -37,8 +34,6 @@ var uibIndex = (function($){
         }
       }
     );
-
-    $( '#show-gallery-image' ).bind( 'click', onShowGalleryImage );
   };
 
   var initHomePage = function(){
@@ -82,7 +77,6 @@ var uibIndex = (function($){
   * Called once the response of the service is get.
   */
   var onServiceCallResponse = function (data){
-    // check if the response was successful or not based in its properties
     if (data.hasOwnProperty('response')) {
       setGreetMessage(data.response);
     } else if (data.hasOwnProperty('error')) {
@@ -147,11 +141,6 @@ var uibIndex = (function($){
     addTweetsToContainer(tweets);
 
     hideLoader();
-
-    // save the current lastItem position for the next page scrolling
-    // previousTweetsContainerHeight = $('.floating-box-content')[0].scrollHeight;
-
-    //setMoreTweetsButtonEnabledStatus(true);
   };
 
   var showLoader = function(){
@@ -212,9 +201,6 @@ var uibIndex = (function($){
       $('#tweets-container').append(createTweetListViewItem(tweets[index]));
     }
 
-    $('#tweets-container').listview('refresh');
-    showTweets();
-
     if (previousTweetsContainerHeight) {
       $('.floating-box-content').animate({scrollTop: previousTweetsContainerHeight}, 500);
     }
@@ -224,13 +210,15 @@ var uibIndex = (function($){
   * Creates and returns a listviewitem that contains a single tweet information
   */
   var createTweetListViewItem = function(tweet){
-    var $lviTweet = $('<li></li>');
+    var $lviTweet = $('<li class="tweet-item"></li>'),
+        $date;
 
-    $date = $('<p class="ui-li-aside"></p>').append($('<strong></strong>').html(formatTweetDate(tweet.created_at)));
-    $lviTweet.append($('<img>').attr('src', tweet.profile_image_url));
+    $date = $('<p class="ui-li-aside tweet-date"></p>').append($('<strong></strong>').html(formatTweetDate(tweet.created_at)));
+    $lviTweet.append($('<img class="">').attr('src', tweet.profile_image_url));
     $lviTweet.append($date);
-    $lviTweet.append($('<h2></h2>').html(tweet.from_user));
-    $lviTweet.append($('<p></p>').html(tweet.text));
+    $lviTweet.append($('<h3></h3>').html(tweet.from_user));
+    $lviTweet.append($('<p></p>').html(tweet.text)).bind('click', onTweetClicked);
+    $lviTweet.attr('rel', tweet.id);
 
     return $lviTweet;
   };
@@ -262,6 +250,32 @@ var uibIndex = (function($){
     $('#gallery-page div[data-role=content] .gallery-image-container').html($(this));
     $(this).fadeIn('slow');
     hideLoader();
+  };
+
+  var onTweetClicked = function(e){
+    var $tweetItem = $(this),
+        title,
+        description,
+        imageUrl,
+        $elParagraph;
+
+    $tweetItem.children('p').each(function(){
+      $elParagraph = $(this);
+      if ($elParagraph.hasClass('ui-li-aside')){
+        title = $elParagraph.html();
+      }
+      else{
+        description = $elParagraph.html();
+      }
+    });
+    imageUrl = $($tweetItem.children('img')).attr('src');
+
+    $('#tweet-details-title').html(title);
+    $('#tweet-details-description').html(description);
+    $('#tweet-details-image').html($('<img class="tweet-details-avatar">').attr('src', imageUrl));
+    $('#tweet-details-user').html($($tweetItem.children('h3')).html());
+
+    $('#tweet-details-popup').popup('open', {theme: 'a'});
   };
 
   return init();

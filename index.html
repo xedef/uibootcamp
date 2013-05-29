@@ -12,6 +12,7 @@
   </head>
 <body>
   <div data-role="page" id="home">
+
     <div data-role="panel" id="menu-panel" data-position="left" data-display="overlay" >
       <a href="#comments-page" data-role="button" data-corners="false" data-theme="b" data-transition="flow">Leave a comment</a>
       <a href="#gallery-page" data-role="button" data-corners="false" data-theme="b" data-transition="flip">Gallery</a>
@@ -31,15 +32,7 @@
       <div id="response-container">
       </div>
 
-      <a id="twitter-button" data-role="button"></a>
-
-      <div class="floating-box" data-role="popup">
-        <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-        <ul data-role="listview" id="tweets-container">
-
-        </ul>
-
-      </div>
+      <a href="#tweets-dialog" data-role="button" id="twitter-button" data-rel="dialog">Get Tweets</a>
     </div>
   </div>
   <div data-role="page" id="comments-page">
@@ -72,6 +65,30 @@
     <div data-role="content">
       <a href="./samuelDialog.html" data-rel="dialog" data-role="button">Open dialog</a>
     </div>
+  </div>
+
+  <div id="tweets-dialog" class="floating-box" data-role="page">
+    <div data-role="header">
+      <h1>HTML5 Tweets</h1>
+    </div>
+
+    <div data-role="content">
+      <ul data-role="listview" id="tweets-container">
+      </ul>
+    </div>
+      <div id="tweet-details-popup" data-role="popup" data-theme="e">
+        <div data-role="header" data-theme="e">
+          <a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+          <h1 id="tweet-details-title">Tweet details</h1>
+        </div>
+
+        <div data-role="content">
+          <div id="tweet-details-image" class="center">
+          </div>
+          <h3 id="tweet-details-user"></h3>
+          <div id="tweet-details-description"></div>
+        </div>
+      </div>
   </div>
 </body>
 </html>

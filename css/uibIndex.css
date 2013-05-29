@@ -46,14 +46,17 @@ body{
   width: 100%;
 }
 
-.left{
-  float: left;
+.tweet-item{
+  padding: 10px;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.tweet-item h3{
   display: inline;
 }
 
-.right{
-  float: right;
-  display: inline;
+.tweet-date{
+  font-size: 0.75em;
 }
 
 .center{
@@ -62,4 +65,8 @@ body{
 
 .gallery-image-container img{
   max-width: 100%;
+}
+
+.tweet-details-avatar{
+  width: 200px;
 }
