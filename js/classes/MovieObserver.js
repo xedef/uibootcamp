@@ -1,8 +1,6 @@
-var MovieObserver = function(){
+var MovieObserver = Object.create(null);
 
-};
-
-MovieObserver.prototype.update = function(message){
+MovieObserver.update = function(message){
   console.log(message);
 };
 
@@ -11,10 +9,9 @@ MovieObserver.prototype.update = function(message){
 */
 
 var MovieObserverModule = (function(){
-
   return {
     update: function(message){
       console.log('Module: ' + message);
     }
   };
-});
+})();

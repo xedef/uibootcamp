@@ -1,25 +1,26 @@
-var Movie = function(){
-  this.attributes = {title: 'untitled movie'};
-  this.observers = [];
-};
+var Movie = Object.create(null);
+Movie.attributes = {title: 'untitled movie'};
+Movie.observers = [];
 
-Movie.prototype.play = function(){
+Movie.play = function(){
   this.notifyObservers('play', 'Playing ' + this.get('title') + '...');
+  console.log('playing');
 };
 
-Movie.prototype.stop = function(){
+Movie.stop = function(){
   this.notifyObservers('stop', 'Stopped ' + this.get('title') + '...');
+  console.log('stopped');
 };
 
-Movie.prototype.set = function(attributeName, value){
+Movie.set = function(attributeName, value){
   this.attributes[attributeName] = value;
 };
 
-Movie.prototype.get = function(attributeName){
+Movie.get = function(attributeName){
   return this.attributes[attributeName];
 };
 
-Movie.prototype.addObserver = function(eventName, fn){
+Movie.addObserver = function(eventName, fn){
   var eventObservers = this.observers[eventName];
   if (!eventObservers){
     this.observers[eventName] = [fn];
@@ -29,7 +30,7 @@ Movie.prototype.addObserver = function(eventName, fn){
   }
 };
 
-Movie.prototype.notifyObservers = function(eventName, message){
+Movie.notifyObservers = function(eventName, message){
   var eventObservers = this.observers[eventName];
 
   for (var i = 0; eventObservers && i < eventObservers.length; i++) {
@@ -65,10 +66,12 @@ var MovieModule = (function(){
 
     play: function(){
       notifyObservers('play', 'Playing ' + this.get('title') + '...');
+      console.log('playing');
     },
 
     stop: function(){
       notifyObservers('stop', 'Stopped ' + this.get('title') + '...');
+      console.log('stopped');
     },
 
     addObserver: function(eventName, fn){
@@ -81,4 +84,4 @@ var MovieModule = (function(){
       }
     }
   };
-});
+})();
