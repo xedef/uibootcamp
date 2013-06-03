@@ -84,4 +84,4 @@ var MovieModule = (function(){
       }
     }
   };
-})();
+});
