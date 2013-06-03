@@ -1,20 +1,45 @@
 Globant HTML5 Bootcamp
 ======================
 
-#Topic 2: jQuery Mobile
+#Topic 3: Design Patterns and OOP in Javascript
 
 ##Exercises
-1. Copy your code from the first day to current topic folder.
-1. Add jQuery Mobile to your app.
-1. Set viewport.
-1. Add proper data roles.
-1. Show a loading animation when previously created button is clicked.
-1. Hide animation when ESC key is pressed.
-1. Add three pages and a menu to navigate between them.
-1. Play with different transitions between pages.
-1. Add some content to your pages and buttons that opens dialogs.
-1. Create a new file pages/sample1.html from the code in http://pastebin.com/VGZYCbS2. Load its content in a new page (it’s just one link)
-1. Translate your movie.getTop listing into a jQuery Mobile list with thumbs.
-1. Show a dialog with more movie details and bigger box art when a movie is clicked.
+1. Create a Movie object:
+
+    Movie
+    -attributes : hashmap
+
+    + play()
+    + stop()
+    + set(attr:string, value)
+    + get(attr:string)
+
+1. Instantiate some of your favourite movies and play with them in the console.
+1. Add a MovieObserver class that listens for “playing” and “stopped” events.
+1. Publish “playing” event on Movie.play().
+You should be able to do something like this in the console:
+```
+var terminator = new Movie();
+terminator.set('title', 'Terminator');
+...
+terminator.play(); //output: Playing Terminator...
+```
+
+1. Publish “stopped” event on Movie.stop().
+1. Log to console when each event is fired.
+1. Refactor Movie class as a Module keeping your previous code for reference.
+1. Create a DownloadableMovie that extends from Movie adding a download method.
+1. Create a  mixin object called Social with the methods: share(friendName) and like().
+1. Apply the mixin to Movie object and play with the console output.
+You should be able to do something like this in the console:
+```
+var ironman2 = new Movie();
+ironman2.set('title', 'Iron Man 2');
+...
+ironman2.share(‘V. Rivas’); //output: Sharing Iron Man 2 with V. Rivas
+```
+1. Create an Actor class and create some actors from one of your favorite movies.
+1. Show how you would add an array of actors to a Movie object.
+
 
 ### (C)2013 - Federico Emanuel Freire
