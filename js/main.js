@@ -10,8 +10,8 @@ requirejs.config({
   }
 });
 
-require(['requireFiles/Movie', 'requireFiles/Director', 'jquery', 'jquery.mobile'], function(Movie, Director) {
-  var m  = new Movie();
-  m.get('title');
-
+require(['requireFiles/Movie', 'requireFiles/Director', 'Topic4', 'jquery', 'jquery.mobile'],
+  function(Movie, Director, Topic4) {
+    var topic4 = new Topic4();
+    topic4.init();
 });

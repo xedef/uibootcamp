@@ -11,14 +11,21 @@
     <div data-role="page" id="home">
 
       <div id="uib-header" data-role="header">
-        <a href="#" id="show-menu" data-role="button" data-icon="bars" data-iconpos="notext" data-theme="c" data-inline="true">Bars</a>
         <h1>Globant HTML5 Bootcamp - RequireJS and AMD</h1>
+      </div>
+      <div id="content">
+        <a href="#quote-dialog" data-role="button" id="show-director-quote" data-rel="dialog">Make director speak</a>
+      </div>
+    </div>
+
+    <div id="quote-dialog" class="floating-box" data-role="page">
+      <div data-role="header">
+        <h1>Quote</h1>
       </div>
 
       <div data-role="content">
-
+        <p id="quote-text"></p>
       </div>
-
     </div>
   </body>
 </html>
