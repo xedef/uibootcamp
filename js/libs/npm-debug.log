@@ -1,0 +1,54 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'c:\\Program Files (x86)\\nodejs\\node.exe',
+1 verbose cli   'c:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'dust' ]
+2 info using npm@1.1.36
+3 info using node@v0.8.2
+4 verbose config file C:\Users\federico.freire\.npmrc
+5 verbose config file c:\Program Files (x86)\nodejs\etc\npmrc
+6 verbose config file c:\Program Files (x86)\nodejs\node_modules\npm\npmrc
+7 verbose read json c:\uibootcamp\js\libs\package.json
+8 verbose read json c:\uibootcamp\js\libs\package.json
+9 verbose cache add [ 'dust', null ]
+10 silly cache add name=undefined spec="dust" args=["dust",null]
+11 verbose parsed url { pathname: 'dust', path: 'dust', href: 'dust' }
+12 silly lockFile 7d6d3243-dust dust
+13 verbose lock dust C:\Users\federico.freire\AppData\Roaming\npm-cache\7d6d3243-dust.lock
+14 silly lockFile 7d6d3243-dust dust
+15 verbose addNamed [ 'dust', '' ]
+16 verbose addNamed [ null, '' ]
+17 silly lockFile fdba64c0-dust dust@
+18 verbose lock dust@ C:\Users\federico.freire\AppData\Roaming\npm-cache\fdba64c0-dust.lock
+19 silly addNameRange { name: 'dust', range: '', hasData: false }
+20 verbose url raw dust
+21 verbose url resolving [ 'https://registry.npmjs.org/', './dust' ]
+22 verbose url resolved https://registry.npmjs.org/dust
+23 info retry registry request attempt 1 at 14:16:52
+24 http GET https://registry.npmjs.org/dust
+25 info retry will retry, error on last attempt: Error: connect ETIMEDOUT
+26 info retry registry request attempt 2 at 14:17:25
+27 http GET https://registry.npmjs.org/dust
+28 info retry will retry, error on last attempt: Error: connect ETIMEDOUT
+29 info retry registry request attempt 3 at 14:18:46
+30 http GET https://registry.npmjs.org/dust
+31 silly lockFile fdba64c0-dust dust@
+32 error Error: connect ETIMEDOUT
+32 error     at errnoException (net.js:776:11)
+32 error     at Object.afterConnect [as oncomplete] (net.js:767:19)
+32 error  { [Error: connect ETIMEDOUT] code: 'ETIMEDOUT', errno: 'ETIMEDOUT', syscall: 'connect' }
+33 error You may report this log at:
+33 error     <http://github.com/isaacs/npm/issues>
+33 error or email it to:
+33 error     <npm-@googlegroups.com>
+34 error System Windows_NT 6.1.7600
+35 error command "c:\\Program Files (x86)\\nodejs\\node.exe" "c:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "dust"
+36 error cwd c:\uibootcamp\js\libs
+37 error node -v v0.8.2
+38 error npm -v 1.1.36
+39 error syscall connect
+40 error code ETIMEDOUT
+41 error message connect ETIMEDOUT
+42 error errno ETIMEDOUT
+43 error ETIMEDOUT errno
+44 verbose exit [ 1, true ]

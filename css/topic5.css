@@ -1,0 +1,30 @@
+.skill {
+  padding: 3px 5px;
+  border: 1px solid #CECECE;
+  border-radius: 5px;
+}
+
+.experience-container {
+  border: 1px solid #CECECE;
+  border-radius: 5px;
+  padding: 10px;
+  max-width: 400px;
+  margin-bottom: 20px
+}
+
+.experience-position {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.experience-company {
+  font-size: 12px;
+  font-weight: bold;
+  color: #89BDFF;
+}
+
+.experience-dates {
+  font-size: 11px;
+  font-weight: normal;
+  color: #666666;
+}

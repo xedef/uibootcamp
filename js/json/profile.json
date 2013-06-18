@@ -1,0 +1,29 @@
+{
+  "name": "Federico Freire",
+  "profile_pic": "http://m.c.lnkd.licdn.com/media/p/7/000/237/327/2539126.jpg",
+  "sector": "Software Development",
+  "country": "Argentina",
+  "current_position": "Technical Leader for EA Sports Online at Globant",
+  "skills": ["PHP", "JavaScript", "jQuery", "CSS", "require.js", "HTML5"],
+  "experience":
+  [
+    {
+      "position": "Technical Leader for EA Sports Online",
+      "company": "Globant",
+      "date_from": "June 2012",
+      "date_to": "current"
+    },
+    {
+      "position": "PHP Web Developer",
+      "company": "Globant",
+      "date_from": "November 2011",
+      "date_to": "May 2012"
+    },
+    {
+      "position": "Business Analyst for EA Sports Online",
+      "company": "Globant",
+      "date_from": "March 2012",
+      "date_to": "October 2011"
+    }
+  ]
+}
