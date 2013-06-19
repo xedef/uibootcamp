@@ -33,7 +33,7 @@
         <h1>Underscore templating</h1>
       </div>
       <div data-role="content">
-        <script id="underscore-content" type="text/template" class="template">
+        <script id="underscore-content" type="text/template">
           <h1><%= name %></h1>
           <h3><%= current_position %></h3>
           <p><%= sector %> - <%= country %></p>
@@ -65,22 +65,22 @@
       </div>
       <div data-role="content">
         <script id="handlebars-content" type="text/x-handlebars-template">
-          <h1>{{ name }}</h1>
-          <h3>{{ current_position }}</h3>
-          <p>{{ sector }} - {{ country }}</p>
-          <img src="{{ profile_pic }}"/>
+          <h1>{{name}}</h1>
+          <h3>{{current_position}}</h3>
+          <p>{{sector}} - {{country}}</p>
+          <img src="{{profile_pic}}"/>
 
           <h3>Skills</h3>
           {{#skills}}
-            <span class="skill">{{ this }}</span>
+            <span class="skill">{{this}}</span>
           {{/skills}}
 
           <h3>Experience</h3>
           {{#experience}}
             <div class="experience-container">
-              <div class="experience-position">{{ position }}</div>
-              <div class="experience-company">{{ company }}</div>
-              <div class="experience-dates">{{ date_from }} - {{ date_to }}</div>
+              <div class="experience-position">{{position}}</div>
+              <div class="experience-company">{{company}}</div>
+              <div class="experience-dates">{{date_from}} - {{date_to}}</div>
             </div>
           {{/experience}}
         </script>
@@ -94,7 +94,27 @@
         <h1>{dust} templating</h1>
       </div>
       <div data-role="content">
+        <script id="dust-content" type="text/template">
+          <h1>{name}</h1>
 
+          <h3>{current_position}</h3>
+          <p>{sector} - {country}</p>
+          <img src="{profile_pic}"/>
+
+          <h3>Skills</h3>
+          {#skills}
+            <span class="skill">{.}</span>
+          {/skills}
+
+          <h3>Experience</h3>
+          {#experience}
+            <div class="experience-container">
+              <div class="experience-position">{.position}</div>
+              <div class="experience-company">{.company}</div>
+              <div class="experience-dates">{.date_from} - {.date_to}</div>
+            </div>
+          {/experience}
+        </script>
       </div>
     </div>
 

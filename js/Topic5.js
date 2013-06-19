@@ -21,16 +21,25 @@ define(function() {
     };
 
     var showHandlebarsProfile = function() {
-      var source   = $("#handlebars-content").html(),
-          template = Handlebars.compile(source),
-          parent = $("#handlebars-content").parent();
+      var $handlebarsElement = $( 'script#handlebars-content' ),
+          template,
+          parent = $handlebarsElement.parent();
 
+      if ( $handlebarsElement.length === 0 ) {
+        return;
+      }
+
+      template = Handlebars.compile( $handlebarsElement.html() );
       parent.html( template( myProfile ) );
     };
 
     var showUnderscoreProfile = function() {
-      var $underElement = $( '#underscore-content' ),
+      var $underElement = $( 'script#underscore-content' ),
           parent = $underElement.parent();
+
+      if ( $underElement.length === 0 ) {
+        return;
+      }
 
       var html = _.template( $underElement.html(), myProfile );
 
@@ -38,6 +47,20 @@ define(function() {
     };
 
     var showDustProfile = function() {
+      var $dustElement = $( 'script#dust-content' ),
+          parent = $dustElement.parent();
+
+      if ( $dustElement.length === 0 ) {
+        return;
+      }
+
+      var compiled = dust.compile( $dustElement.html(), 'dustContent' );
+
+      dust.loadSource( compiled );
+
+      dust.render( 'dustContent', myProfile, function( err, out ) {
+        parent.html( out );
+      });
 
     };
 
