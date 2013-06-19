@@ -33,7 +33,27 @@
         <h1>Underscore templating</h1>
       </div>
       <div data-role="content">
+        <script id="underscore-content" type="text/template" class="template">
+          <h1><%= name %></h1>
+          <h3><%= current_position %></h3>
+          <p><%= sector %> - <%= country %></p>
+          <img src="<%= profile_pic %>"/>
 
+          <h3>Skills</h3>
+          <% _.each(skills, function(skill) { %>
+            <span class="skill"><%= skill %></span>
+          <% }); %>
+
+          <h3>Experience</h3>
+          <% _.each(experience, function(job) { %>
+            <div class="experience-container">
+              <div class="experience-position"><%= job.position %></div>
+              <div class="experience-company"><%= job.company %></div>
+              <div class="experience-dates"><%= job.date_from %> - <%= job.date_to %></div>
+            </div>
+          <% }); %>
+
+        </script>
       </div>
     </div>
 

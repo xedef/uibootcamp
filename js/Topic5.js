@@ -29,7 +29,12 @@ define(function() {
     };
 
     var showUnderscoreProfile = function() {
+      var $underElement = $( '#underscore-content' ),
+          parent = $underElement.parent();
 
+      var html = _.template( $underElement.html(), myProfile );
+
+      parent.html(html);
     };
 
     var showDustProfile = function() {
